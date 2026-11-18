@@ -1,0 +1,124 @@
+{
+  "results": [
+    {
+      "query": "CPU 工作原理 详解 指令周期 流水线 架构",
+      "diagnostics": {
+        "search_id": "8502d99428824d5a8877e6df3e866324",
+        "query": "CPU 工作原理 详解 指令周期 流水线 架构",
+        "requested_backend": "yahoo",
+        "proxy_source": "platform",
+        "available_backends": [
+          "brave",
+          "duckduckgo",
+          "grokipedia",
+          "mojeek",
+          "startpage",
+          "wikipedia",
+          "yahoo"
+        ],
+        "timeout_seconds": 15,
+        "max_results": 3,
+        "fetch_full_page": false,
+        "stage": "processing",
+        "status": "success",
+        "raw_count": 3,
+        "valid_count": 3,
+        "dropped_count": 0,
+        "dropped_results": [],
+        "full_page_failed_count": 0,
+        "elapsed_ms": 4239.8
+      },
+      "titles": [
+        "中央处理器（CPU）深度解剖：从晶体管到指令执行的魔法之旅_cpu的晶体...",
+        "CPU工作原理：从晶体管到多核架构的全方位解析 - 知乎",
+        "一文搞懂CPU的工作原理 - 知乎"
+      ]
+    },
+    {
+      "query": "GPU 工作原理 架构",
+      "diagnostics": {
+        "search_id": "d9ffd27051d242c389e3dcb2be136208",
+        "query": "GPU 工作原理 架构",
+        "requested_backend": "yahoo",
+        "proxy_source": "platform",
+        "available_backends": [
+          "brave",
+          "duckduckgo",
+          "grokipedia",
+          "mojeek",
+          "startpage",
+          "wikipedia",
+          "yahoo"
+        ],
+        "timeout_seconds": 15,
+        "max_results": 3,
+        "fetch_full_page": false,
+        "stage": "processing",
+        "status": "success",
+        "raw_count": 3,
+        "valid_count": 3,
+        "dropped_count": 0,
+        "dropped_results": [],
+        "full_page_failed_count": 0,
+        "elapsed_ms": 1386.4
+      },
+      "titles": [
+        "每个程序员都应该了解的GPU工作原理：从硬件到架构",
+        "GPU 硬件原理架构（一）_gpu架构图-CSDN博客",
+        "深入理解GPU硬件架构及运行机制 - 知乎"
+      ]
+    },
+    {
+      "query": "LangGraph agent framework",
+      "diagnostics": {
+        "search_id": "e415ebe3859d486b82d3ae89df27704d",
+        "query": "LangGraph agent framework",
+        "requested_backend": "yahoo",
+        "proxy_source": "platform",
+        "available_backends": [
+          "brave",
+          "duckduckgo",
+          "grokipedia",
+          "mojeek",
+          "startpage",
+          "wikipedia",
+          "yahoo"
+        ],
+        "timeout_seconds": 15,
+        "max_results": 3,
+        "fetch_full_page": false,
+        "stage": "processing",
+        "status": "success",
+        "raw_count": 3,
+        "valid_count": 3,
+        "dropped_count": 0,
+        "dropped_results": [],
+        "full_page_failed_count": 0,
+        "elapsed_ms": 1499.7
+      },
+      "titles": [
+        "LangGraph: Agent Orchestration Framework for Reliable AI Agents",
+        "Workflows and agents - Docs by LangChain",
+        "Agent AI with LangGraph: A Modular Framework for Enhancing ..."
+      ]
+    }
+  ],
+  "graph_node_confirmation": {
+    "last_search_has_results": true,
+    "sources_count": 3
+  },
+  "final_link_verification": {
+    "status": "success",
+    "count": 3,
+    "titles": [
+      "中央处理器（CPU）深度解剖：从晶体管到指令执行的魔法之旅_cpu的晶体...",
+      "CPU工作原理：从晶体管到多核架构的全方位解析 - 知乎",
+      "一文搞懂CPU的工作原理 - 知乎"
+    ],
+    "hosts": [
+      "blog.csdn.net",
+      "zhuanlan.zhihu.com",
+      "zhuanlan.zhihu.com"
+    ]
+  }
+}

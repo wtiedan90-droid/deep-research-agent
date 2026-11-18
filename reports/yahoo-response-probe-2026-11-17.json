@@ -1,0 +1,106 @@
+{
+  "results": [
+    {
+      "query": "CPU 工作原理 详解 指令周期 流水线 架构",
+      "backend": "yahoo",
+      "proxy_source": "explicit_configured_proxy",
+      "http_responses": [
+        {
+          "status_code": 200,
+          "body_bytes": 195489,
+          "page_title": "CPU 工作原理 详解 指令周期 流水线 架构 - Yahoo Search Results",
+          "markers": [
+            "consent"
+          ]
+        }
+      ],
+      "selector_counts": {
+        "relsrch": 0,
+        "algo": 40,
+        "h3": 11
+      },
+      "parsed_rows": 0,
+      "status": "request_error",
+      "error_type": "DDGSException",
+      "error_message": "No results found.",
+      "observed_error_host": null,
+      "elapsed_seconds": 1.17
+    },
+    {
+      "query": "CPU",
+      "backend": "yahoo",
+      "proxy_source": "explicit_configured_proxy",
+      "http_responses": [
+        {
+          "status_code": 200,
+          "body_bytes": 141006,
+          "page_title": "CPU - Yahoo Search Results",
+          "markers": [
+            "consent"
+          ]
+        }
+      ],
+      "selector_counts": {
+        "relsrch": 0,
+        "algo": 0,
+        "h3": 0
+      },
+      "parsed_rows": 0,
+      "status": "request_error",
+      "error_type": "DDGSException",
+      "error_message": "No results found.",
+      "observed_error_host": null,
+      "elapsed_seconds": 0.61
+    },
+    {
+      "query": "LangGraph agent framework",
+      "backend": "yahoo",
+      "proxy_source": "explicit_configured_proxy",
+      "http_responses": [
+        {
+          "status_code": 200,
+          "body_bytes": 158505,
+          "page_title": "LangGraph agent framework - Yahoo Search Results",
+          "markers": [
+            "consent"
+          ]
+        }
+      ],
+      "selector_counts": {
+        "relsrch": 0,
+        "algo": 42,
+        "h3": 11
+      },
+      "parsed_rows": 0,
+      "status": "request_error",
+      "error_type": "DDGSException",
+      "error_message": "No results found.",
+      "observed_error_host": null,
+      "elapsed_seconds": 1.17
+    },
+    {
+      "query": "Python programming",
+      "backend": "yahoo",
+      "proxy_source": "explicit_configured_proxy",
+      "http_responses": [
+        {
+          "status_code": 200,
+          "body_bytes": 300120,
+          "page_title": "Python programming - Yahoo Search Results",
+          "markers": [
+            "consent"
+          ]
+        }
+      ],
+      "selector_counts": {
+        "relsrch": 7,
+        "algo": 42,
+        "h3": 9
+      },
+      "parsed_rows": 7,
+      "status": "success",
+      "returned_rows": 3,
+      "elapsed_seconds": 1.26
+    }
+  ]
+}
