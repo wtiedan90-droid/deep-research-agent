@@ -1,25 +1,15 @@
 # Deep Research Agent
 
-基于 LangGraph 的联网研究助手，使用 DeepSeek API 生成搜索词、总结资料并补充研究。支持命令行和 LangGraph Studio，报告包含搜索来源。
+基于 LangGraph 的联网研究助手，使用 DeepSeek API 生成搜索词、总结资料并补充研究。支持命令行和 LangSmith Studio，并提供 Docker Desktop 启动方式。报告包含搜索来源。
 
 本项目基于 [LangChain Local Deep Researcher](https://github.com/langchain-ai/local-deep-researcher) 改造，沿用 MIT 许可证并保留上游版权信息。
 
-## 环境准备
+## 配置 API Key
 
-当前开发环境是 Windows、Git Bash 和 Python 3.11。以下命令在项目根目录执行。
-
-```bash
-python -m venv .venv
-source .venv/Scripts/activate
-python -m pip install -e .
-```
-
-已有 `.venv` 时直接激活即可。Linux/macOS 使用 `source .venv/bin/activate`。
-
-从 `.env.example` 创建本机配置，保留已有 `.env`，填写自己的 DeepSeek API Key。
+在项目根目录执行以下命令，然后在 `.env` 中填写自己的 `DEEPSEEK_API_KEY`。已有 `.env` 时直接使用。
 
 ```bash
-cp -n .env.example .env
+test -f .env || cp .env.example .env
 ```
 
 主要配置如下：
@@ -36,17 +26,29 @@ FETCH_FULL_PAGE=false
 
 模型和搜索请求需要联网。`.env` 包含本机密钥，应保留在 Git 忽略列表中。
 
+## 本机 Python 环境
+
+命令行和本机 Studio 共用 Python 虚拟环境。下面以 Windows、Git Bash 和 Python 3.11 为例。
+
+```bash
+python -m venv .venv
+source .venv/Scripts/activate
+python -m pip install -e .
+```
+
+已有 `.venv` 时直接激活即可。Linux/macOS 使用 `source .venv/bin/activate`。
+
 ## 命令行运行
 
 ```bash
-PYTHONUTF8=1 .venv/Scripts/python.exe run_agent.py
+python -X utf8 run_agent.py
 ```
 
 输入研究主题，等待搜索和模型调用完成，终端会显示 Markdown 格式的报告和来源。每次启动脚本执行一次研究。
 
-## LangGraph Studio
+## 本机 LangSmith Studio
 
-安装本地开发服务工具。Windows 彩色日志需要 `colorama`。
+激活虚拟环境后安装本地开发服务工具。Windows 彩色日志需要 `colorama`。
 
 ```bash
 python -m pip install "langgraph-cli[inmem]" colorama
@@ -60,6 +62,19 @@ PYTHONUTF8=1 langgraph dev
 ```
 
 同一 thread 会保留状态。研究独立的新主题时，新建 thread，避免之前的总结、来源和轮数影响新任务。
+
+## Docker Desktop
+
+启动 Docker Desktop 并使用 Linux 容器，然后在项目根目录执行以下命令。镜像包含 Python 和项目依赖，Compose 在容器启动时读取项目的 `.env`。
+
+```bash
+docker compose up --build -d
+docker compose logs -f studio
+```
+
+服务启动后，打开 [LangSmith Studio（Docker）](https://smith.langchain.com/studio/?baseUrl=http%3A%2F%2F127.0.0.1%3A2025)，选择 `deep_research_agent` 并提交 `research_topic`。容器用宿主机的 `127.0.0.1:2025`，可以和使用 `2024` 的本机开发服务同时运行。
+
+可以在 Docker Desktop 的 **Containers** 中查看日志和启动或停止服务，也可以在项目根目录执行 `docker compose stop`。修改源码或 `.env` 后，再执行 `docker compose up --build -d` 让容器使用更新。Docker 中的 Studio 历史保存在命名卷 `studio-state` 中。
 
 ## 配置说明
 
@@ -95,10 +110,21 @@ Yahoo 返回页面可能使用不同结构，项目对已观察到的两种结�
 
 搜索日志包含 `search_id`、请求的后端、代理来源、耗时、原始及有效结果数、过滤情况和异常信息。`auto` 模式中的错误主机只表示异常观察到的主机，不能代表全部尝试过的搜索引擎。
 
+## 项目结构
+
+| 路径 | 内容 |
+| --- | --- |
+| `src/deep_research_agent/` | 研究流程、提示词和搜索集成 |
+| `run_agent.py` | 命令行入口 |
+| `pyproject.toml`、`langgraph.json` | Python 依赖和 LangGraph 图配置 |
+| `Dockerfile`、`compose.yaml` | Docker 镜像构建和服务启动 |
+| `tests/` | 配置和搜索相关的测试 |
+| `reports/` | 搜索后端与 Yahoo 解析的诊断记录 |
+
 ## 自检
 
 ```bash
-PYTHONUTF8=1 .venv/Scripts/python.exe -m unittest discover -s tests -p 'test_*.py' -v
+python -X utf8 -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
 自检使用模拟模型和搜索响应，覆盖搜索诊断、Yahoo 解析、配置传递等行为。

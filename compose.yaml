@@ -1,0 +1,11 @@
+services:
+  studio:
+    build: .
+    env_file: .env
+    ports:
+      - "127.0.0.1:2025:2024"
+    volumes:
+      - studio-state:/app/.langgraph_api
+
+volumes:
+  studio-state:

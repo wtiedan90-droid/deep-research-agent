@@ -1,5 +1,13 @@
+# Local environment and credentials
 .env
+.env.*
+!.env.example
 .venv/
+
+# Python generated files
 __pycache__/
+*.pyc
 *.egg-info/
+
+# Local LangGraph state
 .langgraph_api/
